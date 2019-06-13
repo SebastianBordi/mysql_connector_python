@@ -23,3 +23,16 @@ def TestConexion ():
     except mysql.connector.Error as err:
         print(err)
         return False
+
+#Subir data a la base de datos
+def LoadData(table, data):
+    try:
+        cnx = mysql.connector.connect(user=dbUser,  password=dbPass, host=dbHost, port=dbPort, database=dbBase)
+        query = str.format("INSERT INTO {0} VALUES ({1});", table, data)
+        crs = cnx.cursor()
+        cnx.commit()
+        cnx.close()
+        return True
+    except mysql.connector.Error as err:
+        print(err)
+        return False
