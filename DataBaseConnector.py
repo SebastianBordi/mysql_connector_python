@@ -63,3 +63,7 @@ def GetData(table):
         print(err)
         return
 
+#Prueba para curso de git y github
+#Licencia GPL   v2
+#Codigo escrito por sebitronic
+
