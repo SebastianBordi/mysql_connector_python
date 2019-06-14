@@ -14,7 +14,11 @@ dbTabl = "Table"
 #Testeo de conexion
 def TestConexion ():
     try:
-        cnx = mysql.connector.connect(user='User',  password='Password', host='127.0.0.1', port=3306, database='DataBase')
+        cnx = mysql.connector.connect(user='User', 
+                    password='Password', 
+                    host='127.0.0.1', 
+                    port=3306, 
+                    database='DataBase')
         query = str.format("SELECT * FROM Table LIMIT 1;")
         crs = cnx.cursor()
         cnx.commit()
@@ -36,3 +40,26 @@ def LoadData(table, data):
     except mysql.connector.Error as err:
         print(err)
         return False
+
+#Leer data de la base de datos
+def GetData(table):
+    result = []
+    try:
+        cnx = mysql.connector.connect(user='User', 
+                    password='Password', 
+                    host='127.0.0.1', 
+                    port=3306, 
+                    database='DataBase')
+        query = str.format ("SELECT * FROM {0};", table)
+        crs = cnx.cursor(buffered = True)
+        crs.execute(query)
+        cnx.commit()
+        dat = crs.fetchall()
+        for data in dat:
+            result.append(data)
+        cnx.close()
+        return result
+    except mysql.connector.Error as err:
+        print(err)
+        return
+
