@@ -67,3 +67,7 @@ def GetData(table):
 
 #Licencia GPL   v2
 
+
+
+#Libreria de ejemplo para conexiones a base de datos mysql 
+# desde python 
