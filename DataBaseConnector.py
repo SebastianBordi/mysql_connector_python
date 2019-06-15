@@ -1,6 +1,6 @@
 #Libreria de conexion de base de datos en Python 
 
-#importacion de la libreria 
+#Importacion de la librerias
 import mysql.connector 
 
 #Definicion de valores de conexion
@@ -62,4 +62,8 @@ def GetData(table):
     except mysql.connector.Error as err:
         print(err)
         return
+
+#Prueba para curso de git y github
+
+#Licencia GPL   v2
 
